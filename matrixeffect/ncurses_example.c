@@ -1,18 +1,37 @@
+// SEE: https://stackoverflow.com/questions/61812458/handling-unicode-characters-in-c-and-ncurses
 #include <ncurses.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <locale.h>
 
-int main(int argc, char *argv[]) 
-{ 
+void sprintutf8(char * buffer, uint32_t code)
+{
+  if (code < 0x80)
+    sprintf(buffer, "%c", code);
+  else if (code < 0x800)
+    sprintf(buffer, "%c%c",
+      0xC0 | (code >> 6),
+      0x80 | (code & 0x3F));
+  else
+    sprintf(buffer, "%c%c%c",
+      0xE0 | (code >> 12),
+      0x80 | (code >> 6 & 0x3F),
+      0x80 | (code & 0x3F));
+}
+
+int main(int argc, char *argv[])
+{
     setlocale(LC_ALL, "");
     initscr();              // Initialize stdscr
+    char displaychars[4];
+    uint shcha_char = 0x0429;
 
     const char *shades[] = { "\u2588",
                          "\u2593",
                          "\u2592",
                          "\u2591",
                          " "};
+
     const char *_letters[] = { "\u03E8", /* Coptic Capital Letter Hori */
                                   "\u03E9", /* Coptic Small Letter Hori */
                                   "\u03EA", /* Coptic Capital Letter Gangia */
