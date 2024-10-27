@@ -15,10 +15,7 @@
 // at \u0020 (the space character) and ends at \u007E
 // (the tilde). The next printable character after that
 // is \u00A0 (the non-breaking space).
-// TODO: find an algorithm that skips the stuff between
-// \u007E and \u00A0, but still allows for a few of those
-// legacy characters to show up from time to time.
-#define RANDOM_PRINTABLE_UNICODE_CHARACTER (unsigned int)(33 + (rand()%80))
+#define RANDOM_PRINTABLE_UNICODE_CHARACTER (0x018F + (rand()%80))
 
 typedef struct {
     int x, y;
