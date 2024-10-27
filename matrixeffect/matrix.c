@@ -74,7 +74,7 @@ void try_add_drips() {
         if (drips[i].live == false) {
             drips[i].live = true;
             drips[i].x = rand() % MAXX;
-            drips[i].y = 0; 
+            drips[i].y = 0;
             drips[i].bright = rand() % 2;
             return;
         }
