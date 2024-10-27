@@ -46,7 +46,7 @@ void matrix_init() {
     //move this later to matrix.c
     for (int x=0; x < MAXX; x++) {
         for (int y =0; y < MAXY; y++) {
-            matrix[x][y].char_value = 0;
+            matrix[x][y].uint_value = (unsigned int)0;
             matrix[x][y].intensity = 0;
         }
     }
