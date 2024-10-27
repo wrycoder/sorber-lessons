@@ -59,15 +59,15 @@ void fade_n_change_matrix() {
     for (int x=0; x < MAXX; x++) {
         for (int y =0; y < MAXY; y++) {
             //randomly change characters --- even invisible ones.
-            if (rand01() < PROB_CHANGE || matrix[x][y].char_value == 0) {
-                matrix[x][y].char_value = RANDOM_PRINTABLE_CHARACTER;
+            if (rand01() < PROB_CHANGE || matrix[x][y].uint_value == 0) {
+                matrix[x][y].uint_value = RANDOM_PRINTABLE_UNICODE_CHARACTER;
             }
             //randomly dim the cells
             if (rand01() < PROB_DIM) {
                 if (matrix[x][y].intensity > 0)
-                    matrix[x][y].intensity--;    
+                    matrix[x][y].intensity--;
             }
-            
+
         }
     }
 }
