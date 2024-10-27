@@ -37,11 +37,13 @@ void cleanup_ui() {
 }
 
 void show_matrix() {
+    char displaychars[4];
     for (int x=0; x < MAXX; x++) {
         for (int y =0; y < MAXY; y++) {
             int intensity = matrix[x][y].intensity;
             color_set(color_map[intensity], NULL);
-            mvaddch(y, x, matrix[x][y].char_value);
+            sprintutf8(displaychars, matrix[x][y].uint_value);
+            mvaddstr(y, x, displaychars);
         }
     }
     refresh();
