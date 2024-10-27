@@ -6,7 +6,7 @@ OBJS=main.o matrix.o ui.o
 all: main
 	
 main: $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^ -lncurses
+	$(CC) $(CFLAGS) -o $@ $^ -lncursesw
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $^ -o $@
