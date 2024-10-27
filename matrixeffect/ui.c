@@ -13,7 +13,8 @@ void set_colors();
 
 bool init_ui() {
     
-
+    // get the locale
+    setlocale(LC_ALL, "");
     //init curses
     uiwindow = initscr();
     if (uiwindow == NULL) return false;
