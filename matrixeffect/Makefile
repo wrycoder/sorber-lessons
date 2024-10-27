@@ -1,6 +1,6 @@
 
 CC=clang
-CFLAGS=-g -Wall
+CFLAGS=-g -Wall -D_XOPEN_SOURCE_EXTENDED
 OBJS=main.o matrix.o ui.o
 
 all: main
