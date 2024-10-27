@@ -7,10 +7,12 @@
 #define MAX_INTENSITY 13
 #define MIN_INTENSITY 4
 
+#include <stdint.h>
 #include <stdbool.h>
+#include <locale.h>
 
 typedef struct {
-    char char_value;
+    uint32_t uint_value;
     int intensity;
 } cell;
 
@@ -21,5 +23,6 @@ extern cell matrix[MAXX][MAXY];
 bool init_ui();
 void cleanup_ui();
 void show_matrix();
+void sprintutf8(char * buffer, uint32_t code);
 
 #endif
