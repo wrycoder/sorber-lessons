@@ -61,16 +61,16 @@ void set_colors() {
 }
 
 void sprintutf8(char * buffer, uint32_t code) {
-  if (code < 0x80)
-    sprintf(buffer, "%c", code);
-  else if (code < 0x800)
-    sprintf(buffer, "%c%c",
-      0xC0 | (code >> 6),
-      0x80 | (code & 0x3F));
-  else
-    sprintf(buffer, "%c%c%c",
-      0xE0 | (code >> 12),
-      0x80 | (code >> 6 & 0x3F),
-      0x80 | (code & 0x3F));
+    if (code < 0x80)
+        sprintf(buffer, "%c", code);
+    else if (code < 0x800)
+        sprintf(buffer, "%c%c",
+          0xC0 | (code >> 6),
+          0x80 | (code & 0x3F));
+    else
+        sprintf(buffer, "%c%c%c",
+          0xE0 | (code >> 12),
+          0x80 | (code >> 6 & 0x3F),
+          0x80 | (code & 0x3F));
 }
 
