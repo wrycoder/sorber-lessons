@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
                                   "\u3061", /* Hiragana */
                                   "\u304D", /* Hiragana */
                                   " "};
-                                    
+
 
     for(int x = 0; x < 20; x++)
     {
@@ -64,7 +64,13 @@ int main(int argc, char *argv[])
         mvaddstr(2, x, _letters[x]);
     }
 
-    mvprintw(3, 0, "Press ANY KEY to finish");
+    for(int x = 0; x < 20; x++)
+    {
+      sprintutf8(displaychars, (shcha_char + x));
+      mvaddstr(3, x, displaychars);
+    }
+
+    mvprintw(4, 0, "Press ANY KEY to finish");
     refresh();
 
     int ch = getch();
