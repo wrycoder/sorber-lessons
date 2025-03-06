@@ -1,0 +1,11 @@
+CC=clang
+CFLAGS=-Wall -g
+EXE=hashtable_external
+
+all: $(EXE)
+
+%: %.c
+	$(CC) $(CFLAGS) $< -o $@
+
+clean:
+	rm -rf *.dSYM *.o $(EXE)
